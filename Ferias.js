@@ -18,10 +18,13 @@ while (true) {
         process.exit();
     } else {
         data = Number(prompt('Que dia?'));
-        checkData(data);
-        if (checkData == true) {
+        let check = checkData(data);
+        console.log(acao, data, check);
+        if (check === false) {
             atividades.push(acao);
             dia.push(data);
+        } else if (check === true) {
+            console.log('data invalida, tente novamente');
         }
         console.log('atividade adicionada com sucesso. Insira outra atividade ou digite sair');
     }
