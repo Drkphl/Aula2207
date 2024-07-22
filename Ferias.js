@@ -1,12 +1,12 @@
 const prompt = require('prompt-sync')({ sigint: true });
 const { checkData, listar, adicionar } = require('./Ferias_Modulos');
-let data;
+
 
 nome = prompt('qual o seu nome?');
 
 while (true) {
     console.log(`selecione a opção desejada:\n1 - adicionar atividade\n2 - listar atividades`);
-    let opcao = Number(prompt());
+    opcao = Number(prompt());
 
     switch (opcao) {
         case 1:

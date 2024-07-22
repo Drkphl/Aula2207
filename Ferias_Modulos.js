@@ -1,11 +1,9 @@
 const prompt = require('prompt-sync')({ sigint: true });
 let Atividades = [];
 let Dia = [];
-let acao;
-let data;
 
-function checkData(num) {
-    if (num === isNaN) {
+function checkData() {
+    if (isNaN(data)) {
         console.log('data invalida, por favor insira uma data válida');
     } else {
         Atividades.push(acao);
