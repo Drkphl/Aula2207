@@ -1,31 +1,24 @@
 const prompt = require('prompt-sync')({ sigint: true });
-const { checkData } = require('./Ferias_Modulos');
-let atividades = [];
-let dia = [];
-let acao;
+const { checkData, listar, adicionar } = require('./Ferias_Modulos');
 let data;
 
-let nome = prompt('qual o seu nome?');
+nome = prompt('qual o seu nome?');
 
 while (true) {
-    acao = prompt('o que você fez nas férias?');
-    if (acao === 'sair') {
-        console.log(`\no seu nome é ${nome}, e aqui estão suas atividades: \n`);
+    console.log(`selecione a opção desejada:\n1 - adicionar atividade\n2 - listar atividades`);
+    let opcao = Number(prompt());
 
-        atividades.forEach((acao, index) => {
-            console.log(index + 1 + '. ' + acao + ' foi realizada no dia ' + dia[index]);
-        });
-        process.exit();
-    } else {
-        data = Number(prompt('Que dia?'));
-        let check = checkData(data);
-        console.log(acao, data, check);
-        if (check === false) {
-            atividades.push(acao);
-            dia.push(data);
-        } else if (check === true) {
-            console.log('data invalida, tente novamente');
-        }
-        console.log('atividade adicionada com sucesso. Insira outra atividade ou digite sair');
+    switch (opcao) {
+        case 1:
+            adicionar();
+            checkData(data);
+            break;
+        case 2:
+            listar();
+            process.exit();
+            break;
+        default:
+            console.log('opção invalida');
+            break;
     }
 }
